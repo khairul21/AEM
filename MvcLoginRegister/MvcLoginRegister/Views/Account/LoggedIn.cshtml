@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MvcLoginRegister.Models.UniqueDetail>
+
+@{
+    ViewBag.Title = "LoggedIn";
+    string[] tableHeader = new string[]
+    {
+        "unique Name","latitude","longitude","createdAt","updatedAt"
+    };
+}
+
+<h2>LoggedIn</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+
+        @{
+        foreach (var head in tableHeader)
+            {
+               <th>@head</th>
+            }
+        }
+    </tr>
+
+@if(Model !=null){
+    foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @item.uniqueName
+        </td>
+        <td>
+            @item.latitude
+        </td>
+        <td>
+            @item.longitude
+        </td>
+        <td>
+            @item.createdAt
+        </td>
+        <td>
+            @item.updatedAt
+        </td>
+    </tr>
+    }
+}
+
+</table>
